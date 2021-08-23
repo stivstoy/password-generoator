@@ -25,7 +25,7 @@ var alphaUpper;
 var alphaLower;
 var numbers;
 var specialC;
-var passwordNumber = prompt("Please enter the number of characters you would line in your passord between 8-128");
+var passwordNumber = prompt("Please enter the number of characters you would liKe in your passord between 8-128");
 var lowercase; // prompt ("would you like lowercase letters in your password yes or no?");
 var uppercase; // prompt ("would you like uppercase letters in your password yes or no?");
 var numeric; //prompt ("Would you like numbers in your password");
@@ -68,13 +68,14 @@ function uppercaseFunction() {
       break;
     }
 
-    if (uppercase === "N") {
+    else if (uppercase === "N") {
+      alphaUpper = '';
       console.log(alphaUpper);
       break;
     }
 
     else {
-      window.prompt("Please make a valid entry. Use a captital Y or N")
+      window.alert("Please make a valid entry. Use a captital Y or N")
     }
     }
   }
@@ -94,29 +95,65 @@ function lowercaseFunction() {
       break;
     }
 
-    if (uppercase === "N") {
+   else if (lowercase === "N") {
+      alphaLower ='';
       console.log(alphaLower);
       break;
     }
 
     else {
-      window.prompt("Please make a valid entry. Use a captital Y or N")
+      window.alert("Please make a valid entry. Use a captital Y or N")
     }
   }
 }
 
 function numericFunction() {
-  numeric = prompt("would you like numbers in your password yes or no?");
-  numbers = "0123456789";
-  // validateCharacters(passwordNumber);
+  while (true) {
+    numeric = prompt("would you like numbers in your password Y/N");
+
+    console.log(numeric);
+
+    if (numeric ==="Y") {
+      numbers = "0123456789";
+      console.log(numbers);
+      break;
+    }
+
+    else if (numeric === "N") {
+      console.log(numbers);
+      numbers ='';
+      break;
+    }
+
+    else {
+      window.alert("Please make a valid entry. Use a captital Y or N")
+    }
+  }
 }
 
 function specialFunction() {
-  special = prompt("would you like special characters in your password yes or no?");
-  specialC = "!@#$%^&*_-+=";
-  // validateCharacters(passwordNumber);
-}
+  while (true) {
+   special = prompt("would you like special characters in your password Y/N");
 
+    console.log (special);
+
+    if (special ==="Y") {
+      specialC =  "!@#$%^&*_-+=";
+      console.log(specialC);
+      break;
+    }
+
+    else if (special === "N") {
+      specialC = '';
+      console.log(specialC);
+      break;
+    }
+
+    else {
+      window.alert("Please make a valid entry. Use a captital Y or N")
+    }
+  }
+}
 
 function additionalQuestions() {
   uppercaseFunction();
@@ -133,7 +170,6 @@ function generateString(passwordNumber) {
   const charactersLength = passwordChoices.length;
   for (let i = 0; i < passwordNumber; i++) {
    /*  chooose random 1-4 
-
     switch (random) { 
       case 0: {
        result += alphaLower .charAt(Math.floor(Math.random() * 26); if then yes or no
@@ -141,17 +177,12 @@ function generateString(passwordNumber) {
       case 1 () {
         Math.floor(Math.random()
       }
-
       case 2 () {
-
       }
-
       case 3 () {
-
       }
     
     } */
-
 
 
     result += passwordChoices.charAt(Math.floor(Math.random() * charactersLength));
@@ -204,7 +235,7 @@ function generatePassword(lowercase, uppercase, passwordNumber, numeric, special
 
 function validateCharacters(passwordNumber) {
 
-  if (isNaN(passwordNumber) || passwordNumber < 8 || passwordNumber > 128) {
+  if (isNaN(passwordNumber) || passwordNumber < 1 || passwordNumber > 3) {
     // confirm user entered a number
     window.alert("You did not enter a number between 8 - 128");
     passwordNumberFunction();
@@ -213,7 +244,8 @@ function validateCharacters(passwordNumber) {
 
   else {
     additionalQuestions();
-    generatePassword(lowercase, uppercase, passwordNumber, numeric, special);
+    //generatePassword(lowercase, uppercase, passwordNumber, numeric, special);
+    generateString(passwordNumber);
   }
 
 }

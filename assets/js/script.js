@@ -1,5 +1,5 @@
 // Assignment code here
-
+function passwordFunction() {
 
 // I click the button to generate a password
 // I am presented with a series of prompts for password criteria
@@ -79,8 +79,6 @@ function uppercaseFunction() {
     }
     }
   }
-    //validateCharacters(passwordNumber);
- 
 
 function lowercaseFunction() {
   while (true) {
@@ -155,6 +153,14 @@ function specialFunction() {
   }
 }
 
+function validatePrompts () {
+  if (uppercase === "N" &&  lowercase === "N" &&  numeric === "N" && special === "N");
+  window.alert ("You must select yes to one of the prompts");
+  additionalQuestions();
+}
+
+validatePrompts();
+
 function additionalQuestions() {
   uppercaseFunction();
   lowercaseFunction();
@@ -185,8 +191,11 @@ function generateString(passwordNumber) {
     } */
 
 
-    result += passwordChoices.charAt(Math.floor(Math.random() * charactersLength));
+  result += passwordChoices.charAt(Math.floor(Math.random() * charactersLength));
   }
+
+password = result;
+
 
   console.log(result);
   return result;
@@ -235,7 +244,7 @@ function generatePassword(lowercase, uppercase, passwordNumber, numeric, special
 
 function validateCharacters(passwordNumber) {
 
-  if (isNaN(passwordNumber) || passwordNumber < 1 || passwordNumber > 3) {
+  if (isNaN(passwordNumber) || passwordNumber < 8 || passwordNumber > 128) {
     // confirm user entered a number
     window.alert("You did not enter a number between 8 - 128");
     passwordNumberFunction();
@@ -269,8 +278,13 @@ console.log(generateString(passwordNumber, passwordChoices));
 //var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+
+// Get references to the #generate element
+//var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
 //function writePassword() {
-  //var password = generatePassword();
+ // var password = passwordNumber();
  // var passwordText = document.querySelector("#password");
 
  // passwordText.value = password;
@@ -278,5 +292,7 @@ console.log(generateString(passwordNumber, passwordChoices));
 //}
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-//passwordNumberFunction();
+//generateBtn.addEventListener("click", passwordFunction);
+window.alert ("Your password is " + password);
+}
+

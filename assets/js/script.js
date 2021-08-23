@@ -21,16 +21,32 @@
 //  my input should be validated and at least one character type should be selected
 //validate that at least one is a yes
 
-var alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var alphaLower = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "0123456789";
-var specialC = "!@#$%^&*_-+=";
+var alphaUpper;
+var alphaLower;
+var numbers;
+var specialC;
 var passwordNumber = prompt("Please enter the number of characters you would line in your passord between 8-128");
 var lowercase; // prompt ("would you like lowercase letters in your password yes or no?");
 var uppercase; // prompt ("would you like uppercase letters in your password yes or no?");
 var numeric; //prompt ("Would you like numbers in your password");
 var special; //  prompt ("Would you like special characters in your password");
 var generatedPassword;
+var passwordChoices;
+
+console.log(alphaUpper);
+console.log(alphaLower);
+console.log(numbers);
+console.log(specialC);
+//console.log passwordNumber = prompt("Please enter the number of characters you would line in your passord between 8-128");
+console.log(lowercase); // prompt ("would you like lowercase letters in your password yes or no?");
+console.log(uppercase); // prompt ("would you like uppercase letters in your password yes or no?");
+console.log(numeric); //prompt ("Would you like numbers in your password");
+console.log(special); //  prompt ("Would you like special characters in your password");
+console.log(generatedPassword);
+console.log(passwordChoices);
+
+
+
 validateCharacters(passwordNumber);
 
 function passwordNumberFunction() {
@@ -39,31 +55,114 @@ function passwordNumberFunction() {
 }
 
 function uppercaseFunction() {
-  uppercase = prompt ("would you like uppercase letters in your password yes or no?");
-  //validateCharacters(passwordNumber);
-}
+
+  while (true) {
+    uppercase = prompt("would you like uppercase letters in your password Y/N");
+
+    console.log(uppercase);
+
+    if (uppercase ==="Y") {
+
+      alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      console.log(alphaUpper);
+      break;
+    }
+
+    if (uppercase === "N") {
+      console.log(alphaUpper);
+      break;
+    }
+
+    else {
+      window.prompt("Please make a valid entry. Use a captital Y or N")
+    }
+    }
+  }
+    //validateCharacters(passwordNumber);
+ 
 
 function lowercaseFunction() {
-  lowercase = prompt ("would you like lowercase letters in your password yes or no?");
-  //validateCharacters(passwordNumber);
+  while (true) {
+    lowercase = prompt("would you like lowercase letters in your password Y/N");
+
+    console.log(lowercase);
+
+    if (lowercase ==="Y") {
+
+      alphaLower = "abcdefghijklmnopqrstuvwxyz";
+      console.log(alphaLower);
+      break;
+    }
+
+    if (uppercase === "N") {
+      console.log(alphaLower);
+      break;
+    }
+
+    else {
+      window.prompt("Please make a valid entry. Use a captital Y or N")
+    }
+  }
 }
 
 function numericFunction() {
   numeric = prompt("would you like numbers in your password yes or no?");
- // validateCharacters(passwordNumber);
+  numbers = "0123456789";
+  // validateCharacters(passwordNumber);
 }
 
 function specialFunction() {
-  special= prompt("would you like special characters in your password yes or no?");
- // validateCharacters(passwordNumber);
+  special = prompt("would you like special characters in your password yes or no?");
+  specialC = "!@#$%^&*_-+=";
+  // validateCharacters(passwordNumber);
 }
 
-function additionalQuestions(){
+
+function additionalQuestions() {
   uppercaseFunction();
   lowercaseFunction();
   numericFunction();
   specialFunction();
 }
+
+
+
+function generateString(passwordNumber) {
+  let result = ' ';
+  passwordChoices = alphaLower + alphaUpper + numbers + specialC;
+  const charactersLength = passwordChoices.length;
+  for (let i = 0; i < passwordNumber; i++) {
+   /*  chooose random 1-4 
+
+    switch (random) { 
+      case 0: {
+       result += alphaLower .charAt(Math.floor(Math.random() * 26); if then yes or no
+      }
+      case 1 () {
+        Math.floor(Math.random()
+      }
+
+      case 2 () {
+
+      }
+
+      case 3 () {
+
+      }
+    
+    } */
+
+
+
+    result += passwordChoices.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  console.log(result);
+  return result;
+}
+
+
+
 
 function generatePassword(lowercase, uppercase, passwordNumber, numeric, special) {
   var passwordLength = passwordNumber;
@@ -71,9 +170,37 @@ function generatePassword(lowercase, uppercase, passwordNumber, numeric, special
   var upperConfirm = uppercase;
   var numericConfirm = numeric;
   var specialConfirm = special;
-  window.alert(passwordLength+", "+lowerConfirm+", "+ upperConfirm+", "+ numericConfirm+ ", "+ specialConfirm);
+  //alphaLower = alphaLower.charAt(Math.floor(Math.random() * alphaLower.length));
+  // alphaUpper = alphaUpper.charAt(Math.floor(Math.random() * alphaUpper.length));
+  //specialC
+  //specialC.charAt(Math.floor(Math.random() * specialC.length));
+  //numbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
+  //passwordChoices = alphaLower + alphaUpper+ numbers+ specialC;
+  // let generatedPassword ='';
 
+  // const charactersLength = passwordChoices.length;
+  //  for ( let i = 0; i < length; i++ ) {
+  //     generatedPassword += characters.charAt(Math.floor(Math.random() * charactersLength));
+  // }
+
+  // return generatedPassword;
+
+  generatedPassword = generateString(passwordNumber);
+
+
+  // for (var i = 0; i < passwordChoices.length; i++) {
+  // if(lowerConfirm === 'Yes' && upperConfirm === 'Yes' && numericConfirm === 'Yes' && specialConfirm === 'Yes'){
+  // generatedPassword = specialC[Math.floor(Math.random() * specialC.length)];
+  //alphaLower.charAt(Math.floor(Math.random() * n));
+  //}
+  // return window.alert(passwordChoices);
+
+  //window.alert(passwordLength+", "+lowerConfirm+", "+ upperConfirm+", "+ numericConfirm+ ", "+ specialConfirm);
+  //window.alert(alphaLower +", "+alphaUpper);
 }
+
+
+
 
 function validateCharacters(passwordNumber) {
 
@@ -84,20 +211,23 @@ function validateCharacters(passwordNumber) {
   }
 
 
-else {
-  additionalQuestions();
-  generatePassword(lowercase, uppercase, passwordNumber, numeric, special);
+  else {
+    additionalQuestions();
+    generatePassword(lowercase, uppercase, passwordNumber, numeric, special);
   }
 
 }
-  console.log (lowercase);
-  console.log (uppercase);
-  console.log(passwordNumber);
-  console.log(numeric);
-  console.log(special);
+console.log(lowercase);
+console.log(uppercase);
+console.log(passwordNumber);
+console.log(numeric);
+console.log(special);
+// console.log(generatedPassword);
+console.log(passwordChoices);
+console.log(generateString(passwordNumber, passwordChoices));
 
 // WHEN all prompts are answered
-// a password is generated that matches the selected criteria
+// a password is generated that matches the selecteddd criteria
 
 
 // WHEN the password is generated

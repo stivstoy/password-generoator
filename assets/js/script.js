@@ -142,11 +142,13 @@ function specialFunction() {
 
 // Function to validate one of the prompts to be yes
 function validatePrompts () {
-  if (uppercase === "N" &&  lowercase === "N" &&  numeric === "N" && special === "N");
+  if (uppercase === "N" &&  lowercase === "N" &&  numeric === "N" && special === "N") {
   window.alert ("You must select yes to one of the prompts");
   additionalQuestions();
 }
+ 
 
+}
 // run validate prompts
 validatePrompts();
 
@@ -167,7 +169,7 @@ function generateString(passwordNumber) {
    /*  chooose random 1-4 
     switch (random) { 
       case 0: {
-       result += alphaLower .charAt(Math.floor(Math.random() * 26); if then yes or no
+        if then yeresult += alphaLower .charAt(Math.floor(Math.random() * 26);s or no
       }
       case 1 () {
         Math.floor(Math.random()
@@ -181,24 +183,20 @@ function generateString(passwordNumber) {
 
 
   result += passwordChoices.charAt(Math.floor(Math.random() * charactersLength));
+
+
+
   }
   // change result to value to be passed
   password = result;
 
-
+ 
+  document.getElementById("password").innerHTML = 'password  is ' + password;
   console.log(result);
   return result;
-}
 
+  
 
-
-function generatePassword(lowercase, uppercase, passwordNumber, numeric, special) {
-  var passwordLength = passwordNumber;
-  var lowerConfirm = lowercase;
-  var upperConfirm = uppercase;
-  var numericConfirm = numeric;
-  var specialConfirm = special;
-  generatedPassword = generateString(passwordNumber);
 }
 
 //  passwordNumber function
@@ -226,24 +224,23 @@ console.log(special);
 console.log(passwordChoices);
 console.log(generateString(passwordNumber, passwordChoices));
 
-
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+//var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
- var password = result;
- var passwordText = document.querySelector("#password");
+//function writePassword() {
+//  var password = generatePassword();
+//  var passwordText = document.querySelector("#password");
+ // passwordText.value = password;
 
-passwordText.value = password;
-
-}
+//}
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", passwordFunction);
+//generateBtn.addEventListener("click", writePassword);
+
 
 // alert the user of password
-window.alert ("Your password is " + password);
+//window.alert ("Your password is " + password);
 
 }
 
